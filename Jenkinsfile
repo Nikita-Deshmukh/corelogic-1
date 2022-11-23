@@ -1,12 +1,12 @@
 pipeline{
      agent any
        tools{
-maven 'Maven-3.8.6'
+maven 'maven-3.8.6'
 }
   stages{
    stage('Git Chckout'){
     steps{
-       checkout([$class: 'GitSCM', branches: [[name: 'master']], extensions: [], userRemoteConfigs: [[credentialsId: 'a61c4eb6-96d0-4169-823d-321e65db8e98', url: 'https://github.com/PMFayazAhmed/corelogic.git']]]) 
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Nikita', url: 'https://github.com/Nikita-Deshmukh/corelogic-1.git']]]) 
     }   
    }
       stage('Build'){
@@ -23,7 +23,7 @@ maven 'Maven-3.8.6'
    }*/
    stage('Deployment into Tomcat'){
     steps{
-      deploy adapters: [tomcat9(credentialsId: '9880de70-e4ec-4e73-843e-a13eadb0c8d1', path: '', url: 'http://34.132.95.253:8080/')], contextPath: null, war: '**/*.war'  
+      deploy adapters: [tomcat9(credentialsId: 'Nikita', path: '', url: 'http://34.131.170.118/')], contextPath: null, war: ''  
     }   
        
    }
