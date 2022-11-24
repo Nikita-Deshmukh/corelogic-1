@@ -11,7 +11,7 @@ maven 'Maven-3.8.6'
    }
       stage('Build'){
     steps{
-        sh 'mvn clean install package'
+        sh 'mvn clean install'
     }   
        
    }
