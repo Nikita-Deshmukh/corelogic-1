@@ -1,8 +1,8 @@
 pipeline{
      agent any
-      /* tools{
+       tools{
 maven 'Maven.3.8.6'
-}*/
+}
   stages{
    stage('Git Chckout'){
     steps{
@@ -23,7 +23,7 @@ maven 'Maven.3.8.6'
    }*/
    stage('Deployment into Tomcat'){
     steps{
-      deploy adapters: [tomcat9(credentialsId: 'Nikita', path: '', url: 'http://34.131.170.118/')], contextPath: null, war: ''  
+      deploy adapters: [tomcat9(credentialsId: '16c0e8ad-b7bb-4c4e-9f43-cdcf4eab4fc0', path: '', url: 'http://34.131.170.118:8080')], contextPath: null, war: 'target/PollSCM-Corelogic.war'  
     }   
        
    }
