@@ -4,14 +4,14 @@ pipeline{
 maven 'Maven-3.8.6'
 }
   stages{
-   stage('Git Chckout'){
+   stage('Git Checkout'){
     steps{
        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Nikita', url: 'https://github.com/Nikita-Deshmukh/corelogic-1.git']]]) 
     }   
    }
       stage('Build'){
     steps{
-        sh 'mvn package -f pom.xml'
+        sh 'mvn clean install package'
     }   
        
    }
